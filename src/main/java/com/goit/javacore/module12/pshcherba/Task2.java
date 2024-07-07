@@ -40,8 +40,6 @@ public class Task2 {
             e.printStackTrace();
             Thread.currentThread().interrupt();
         }
-
-        System.out.println(queue);
     }
 
     private void fizz() {
@@ -125,11 +123,13 @@ public class Task2 {
             try {
                 while (isDivisibleByFirst(count.get()) || isDivisibleBySecond(count.get())) {
                     if (isReturn()) {
+                        System.out.println(queue);
                         return;
                     }
                     condition.await();
                 }
                 if (isReturn()) {
+                    System.out.println(queue);
                     return;
                 }
                 queue.add(String.valueOf(count.get()));
